@@ -1,6 +1,4 @@
 package com.example.hotelmanagermentui;
-
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -25,35 +23,34 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
-
+///////////////////////////////////////////////////////////////////////////
+/// Class: RoomController
+/// Description: Manages room-related interactions within the application, such as displaying available rooms and handling date selections.
+///////////////////////////////////////////////////////////////////////////
 public class RoomController implements Initializable {
     @FXML
     private ScrollPane roomPane;
     @FXML
     private VBox container;
     @FXML
-    private AnchorPane room;
-
+    private AnchorPane room, datePane, selectedPane;
     @FXML
-    private AnchorPane datePane;
-    @FXML
-    private DatePicker formDate;
-    @FXML
-    private DatePicker toDate;
+    private DatePicker formDate, toDate;
     @FXML
     private Button backBtn;
 
-    private AnchorPane selectedPane;
-    private String typeText;
+    private String typeText, checkInDate, checkOutDate;
     private int price;
     private String[] imageurl;
     private List<String> roomNumber =  new LinkedList<>();
-    private String checkInDate;
-    private String checkOutDate;
-
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: initialize
+    /// Description: Initializes the room view by setting up date selection logic and loading room data.
+    /// Input: URL - the location used to resolve relative paths for the root object, ResourceBundle - the resources used to localize the root object.
+    /// Output: Configures the UI and populates it with initial room data.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void initialize(URL location, ResourceBundle resources) {
-        // 初始化代码，执行依赖于UI组件的操作
         dateInit();
         backBtn.getStyleClass().add("button-hover");
         backBtn.getStyleClass().add("button-hover:hover");
@@ -68,7 +65,13 @@ public class RoomController implements Initializable {
         container.setPrefWidth(530);
         container.setPrefHeight(684);
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: dateInit
+    /// Description: Sets up the date pickers for selecting check-in and check-out dates.
+    /// Input: None
+    /// Output: Configures day cells in the date pickers to disable past and non-selectable dates.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void dateInit() {
         formDate.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
@@ -112,14 +115,26 @@ public class RoomController implements Initializable {
             }
         });
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: init
+    /// Description: Performs initial setup for the room pane and container, such as setting the scroll policy.
+    /// Input: None
+    /// Output: Configures scroll behavior and spacing for the room container.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void init() {
         roomPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         container.setSpacing(10);
 
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: addChildren
+    /// Description: Dynamically adds room entries to the container based on provided JSON data.
+    /// Input: JSONObject[] - array of JSON objects containing room data.
+    /// Output: Adds visual components for each room to the container.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void addChildren(JSONObject[] data) {
         for (int i = 0; i < data.length; i++) {
             AnchorPane copy = new AnchorPane();
@@ -179,7 +194,13 @@ public class RoomController implements Initializable {
         }
 
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: copyNode
+    /// Description: Creates a copy of a given Node, preserving its properties and style.
+    /// Input: Node - the node to be copied.
+    /// Output: Returns a new node that is a copy of the input node.
+    /// Returns: Node
+    ///////////////////////////////////////////////////////////////////////////
     private Node copyNode(Node node) {
         if (node instanceof Button) {
             Button original = (Button) node;
@@ -205,15 +226,20 @@ public class RoomController implements Initializable {
             copy.setStyle(original.getStyle());
             copy.setLayoutX(original.getLayoutX());
             copy.setLayoutY(original.getLayoutY());
-            copy.setFitWidth(original.getFitWidth()); // 设置复制的ImageView的宽度
-            copy.setFitHeight(original.getFitHeight()); // 设置复制的ImageView的高度
-            copy.setPreserveRatio(original.isPreserveRatio()); // 保持宽高比
+            copy.setFitWidth(original.getFitWidth());
+            copy.setFitHeight(original.getFitHeight());
+            copy.setPreserveRatio(original.isPreserveRatio());
             return copy;
         }
-        // 这里可以添加更多类型的检查和复制逻辑
         return null;
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: dateConfirmed
+    /// Description: Confirms the selected dates and loads available rooms based on those dates.
+    /// Input: None
+    /// Output: Retrieves available rooms for the selected dates and updates the UI accordingly.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void dateConfirmed() {
 
         if (formDate.getValue() == null || toDate.getValue() == null) {
@@ -236,12 +262,17 @@ public class RoomController implements Initializable {
 
         RoomDetail.getInstance().receiveData(typeText, imageurl, roomNumber, price, checkInDate, checkOutDate);
     }
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: backBtnClicked
+    /// Description: Handles the action for the back button, typically used to navigate away from the current pane.
+    /// Input: None
+    /// Output: Makes the date pane invisible and possibly performs other navigation actions.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void  backBtnClicked()
     {
         datePane.setVisible(false);
     }
-
-
 }
 
 

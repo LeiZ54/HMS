@@ -20,30 +20,23 @@ import org.json.JSONObject;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-
+///////////////////////////////////////////////////////////////////////////
+/// Class: RoomDetail
+/// Description: Manages the detailed view of room availability, including the ability to book rooms and handle room data.
+///////////////////////////////////////////////////////////////////////////
 public class RoomDetail implements Initializable {
     @FXML
-    private Button backBtn;
+    private Button backBtn, inforbackBtn;
     @FXML
-    private Label availableRoom;
-    @FXML
-    private Label price;
+    private Label availableRoom, price, type, inforDate;
     @FXML
     private ImageView cycleImage;
-    @FXML
-    private Label type;
     @FXML
     private AnchorPane inforInput;
     @FXML
     private ComboBox roomBox;
     @FXML
-    private TextField nameText;
-    @FXML
-    private TextField emailText;
-    @FXML
-    private Button inforbackBtn;
-    @FXML
-    private Label inforDate;
+    private TextField nameText, emailText;
 
     private int imageIndex = 0;
     private String[] imagePaths;
@@ -60,9 +53,14 @@ public class RoomDetail implements Initializable {
         }
         return instance;
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: initialize
+    /// Description: Initializes the room detail view by configuring UI styles and button behaviors.
+    /// Input: URL - the location used to resolve relative paths for the root object, ResourceBundle - the resources used to localize the root object.
+    /// Output: Configures initial CSS styles for buttons.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void initialize(URL location, ResourceBundle resources) {
-        // 初始化代码，执行依赖于UI组件的操作
 
         backBtn.getStyleClass().add("button-hover");
         backBtn.getStyleClass().add("button-hover:hover");
@@ -71,7 +69,13 @@ public class RoomDetail implements Initializable {
 
 
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: backBtnClicked
+    /// Description: Handles the action to navigate back to the previous scene.
+    /// Input: None
+    /// Output: Navigates back to the room scene.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void backBtnClicked() {
         Stage stage = (Stage) GlobalVariable.navigation.getScene().getWindow();
         Scene scene = stage.getScene();
@@ -80,7 +84,13 @@ public class RoomDetail implements Initializable {
         root.getChildren().remove(parent.getChildren().get(2));
         IconController.getInstance().changeScene(FxmlAll.roomScene, false);
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: receiveData
+    /// Description: Receives data to display detailed room information, sets up a slideshow of images.
+    /// Input: Various details about the room, including type, images, room numbers, and dates.
+    /// Output: Updates the UI with detailed room information.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void receiveData(String typeText, String[] imageurl, List<String> roomNumber, int price, String checkInDate, String checkOutDate) {
         type.setText(typeText);
         this.price.setText(String.valueOf(price));
@@ -96,19 +106,37 @@ public class RoomDetail implements Initializable {
         startSlideshow();
 
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: startSlideshow
+    /// Description: Starts an image slideshow for the room.
+    /// Input: None
+    /// Output: Cycles through images periodically.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     private void startSlideshow() {
         nextImage();
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), e -> nextImage()));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: nextImage
+    /// Description: Updates the room image to the next one in the slideshow.
+    /// Input: None
+    /// Output: Changes the displayed room image.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     private void nextImage() {
         imageIndex = (imageIndex + 1) % imagePaths.length;
         cycleImage.setImage(new Image(imagePaths[imageIndex]));
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: bookBtnClicked
+    /// Description: Handles the booking process for selected rooms, showing booking information input form if authenticated.
+    /// Input: None
+    /// Output: Displays booking form or prompts for login if not authenticated.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void bookBtnClicked() {
         GlobalVariable.read();
         if (GlobalVariable.token.isEmpty()) {
@@ -127,14 +155,26 @@ public class RoomDetail implements Initializable {
         }
 
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: inforBackClicked
+    /// Description: Handles the action to navigate away from the booking information input form.
+    /// Input: None
+    /// Output: Clears and hides the booking information form.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void inforBackClicked() {
         inforInput.setVisible(false);
         inforDate.setText("");
         nameText.setText("");
         emailText.setText("");
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: confirmBtnClicked
+    /// Description: Confirms the booking information and sends it to the server.
+    /// Input: None
+    /// Output: Submits the booking information and handles the server response.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void confirmBtnClicked() {
         String jsonInputString = new JSONObject().put("roomNumber", roomBox.getValue())
                 .put("customerName", nameText.getText())

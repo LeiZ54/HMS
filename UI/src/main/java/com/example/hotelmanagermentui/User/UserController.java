@@ -13,116 +13,74 @@ import org.json.JSONObject;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+//
+// Class: UserController
+//
+// Description:
+// This class manages user interactions within the hotel management system. It handles user information display,
+// updates, role management, and navigation through different parts of the user interface.
+//
 public class UserController implements Initializable {
     //   main scene
+    //------------------------------------------------------------
     @FXML
-    private Label username;
+    private Label username, realName, email, role, phone;
     @FXML
-    private Label realName;
-    @FXML
-    private Label email;
-    @FXML
-    private Label role;
-    @FXML
-    private Button information;
-    @FXML
-    private Button password;
-    @FXML
-    private Label phone;
+    private Button information, password;
     //    information scene
-//    ------------------------------------------------------------
+    //------------------------------------------------------------
     @FXML
     private AnchorPane inforPane;
     @FXML
-    private Label inforUsername;
+    private Label inforUsername, inforRealName, inforEmail, inforPhone, inforPhoneError, inforEmailError, inforRealNameError;
     @FXML
-    private Label inforRealName;
+    private TextField phoneText, emailText, realNameText;
     @FXML
-    private Label inforEmail;
-    @FXML
-    private Label inforPhone;
-
-    @FXML
-    private TextField phoneText;
-    @FXML
-    private TextField emailText;
-    @FXML
-    private TextField realNameText;
-    @FXML
-    private Button inforBack;
-    @FXML
-    private Button inforChangeBtn;
-    @FXML
-    private Label inforPhoneError;
-    @FXML
-    private Label inforEmailError;
-    @FXML
-    private Label inforRealNameError;
-
-
+    private Button inforBack, inforChangeBtn;
     //    password change scene
-//    ----------------------------------------------
+    //------------------------------------------------------------
     @FXML
-    private AnchorPane passwordPane;
+    private AnchorPane passwordPane, oldPasswordPane, newPasswordPane;
     @FXML
-    private AnchorPane oldPasswordPane;
+    private Button passwordBack1, passwordBack2, logOutBtn;
     @FXML
-    private AnchorPane newPasswordPane;
+    private TextField oldPasswordText, newPasswordText, passwordAgainText;
     @FXML
-    private Button passwordBack1;
-    @FXML
-    private Button passwordBack2;
-    @FXML
-    private TextField oldPasswordText;
-    @FXML
-    private TextField newPasswordText;
-    @FXML
-    private TextField passwordAgainText;
-    @FXML
-    private Button logOutBtn;
-    @FXML
-    private Label oldPasswordError;
-    @FXML
-    private Label newPasswordError;
-
-    //    搜索栏
-//    ————————————————————————————————————————————————————————
+    private Label oldPasswordError, newPasswordError;
+    //     search bar
+    //------------------------------------------------------------
     @FXML
     private ComboBox roleChoice;
     @FXML
     private AnchorPane search;
     @FXML
     private TextField searchText;
-
     @FXML
-    private Button searchBackBtn;
+    private Button searchBackBtn, searchModifyBtn, searchSearchBtn, deleteBtn;
     @FXML
-    private Label searchUsername;
-    @FXML
-    private Label searchRealName;
-    @FXML
-    private Label searchEmail;
-    @FXML
-    private Label searchRole;
-    @FXML
-    private Label searchPhone;
+    private Label searchUsername, searchRealName, searchEmail, searchRole, searchPhone;
     @FXML
     private ImageView searchBtn;
-    @FXML
-    private Button searchModifyBtn;
-    @FXML
-    private Button searchSearchBtn;
-    @FXML
-    private Button deleteBtn;
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: initialize
+    /// Description: Sets initial values and configuration for the user interface elements when the controller is created.
+    /// Input: URL location, ResourceBundle resources
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // 初始化代码，执行依赖于UI组件的操作
         setText();
 
     }
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: getUserInformation
+    /// Description: Retrieves the current user's information from the server and updates the UI accordingly.
+    /// Input: boolean aniNeeded - If true, animations will be used during the scene changes.
+    /// Output: None
+    /// Returns: boolean - Returns true if information retrieval is successful, false otherwise.
+    /////////////////////////////////////////////////////////////////////////////
     public static boolean getUserInformation(boolean aniNeeded) {
         String response = GlobalVariable.get(GlobalVariable.url + "user/show?username=",true);
         JSONObject json = new JSONObject(response);
@@ -149,7 +107,13 @@ public class UserController implements Initializable {
 
 
     }
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: setText
+    /// Description: Sets the text of UI labels to the user's current information.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void setText() {
         username.setText(GlobalVariable.username);
         realName.setText(GlobalVariable.realName);
@@ -173,7 +137,13 @@ public class UserController implements Initializable {
         }
 
     }
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: changeInformation
+    /// Description: Displays the user information editing pane and populates it with current user data.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void changeInformation() {
         inforPane.setVisible(true);
         inforUsername.setText(GlobalVariable.username);
@@ -182,10 +152,14 @@ public class UserController implements Initializable {
         inforPhone.setText(GlobalVariable.phoneNumber);
     }
 
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: logOut
+    /// Description: Logs out the current user and clears all session data.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void logOut() {
-//        String res = GlobalVariable.get(GlobalVariable.url + "addData");
-//        System.out.println(res);
         GlobalVariable.token = "";
         GlobalVariable.username = "";
         GlobalVariable.email = "";
@@ -194,15 +168,26 @@ public class UserController implements Initializable {
         GlobalVariable.write();
         IconController.getInstance().changeScene(FxmlAll.loginScene, false);
     }
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: changePassword
+    /// Description: Displays the pane for changing the user's password.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void changePassword() {
         passwordPane.setVisible(true);
     }
 
 
-//    change password
-    //-----------------------------------------------------------
 
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: passwordBackClicked
+    /// Description: Handles the back button click on the password change screen, resetting all fields and errors.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void passwordBackClicked() {
         passwordPane.setVisible(false);
         oldPasswordPane.setVisible(true);
@@ -214,7 +199,13 @@ public class UserController implements Initializable {
         newPasswordError.setText("");
 
     }
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: oldPasswordConfirmClicked
+    /// Description: Validates the old password with the server and, if correct, proceeds to the new password entry screen.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void oldPasswordConfirmClicked() {
         String jsonInputString = new JSONObject()
                 .put("username", GlobalVariable.username)
@@ -237,7 +228,13 @@ public class UserController implements Initializable {
             }
         }
     }
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: newPasswordConfirmClicked
+    /// Description: Confirms the new password, ensures it matches the repeated password entry, and updates the password via the server.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void newPasswordConfirmClicked() {
         if (newPasswordText.getText().equals(passwordAgainText.getText())) {
             //调用修改密码接口
@@ -260,10 +257,14 @@ public class UserController implements Initializable {
             newPasswordError.setText("Passwords do not match");
         }
     }
-    //  Change information
-//    --------------------------------------------------------------
 
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: inforBackClicked
+    /// Description: Handles the back button in the information update panel, resets all fields to the original values.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void inforBackClicked() {
         email.setText(GlobalVariable.email);
         phone.setText(GlobalVariable.phoneNumber);
@@ -271,7 +272,13 @@ public class UserController implements Initializable {
         inforPaneInit();
     }
 
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: inforChangeBtnClicked
+    /// Description: Handles the toggle between modifying and confirming changes to user information.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void inforChangeBtnClicked() {
         if (inforChangeBtn.getText().equals("Modify")) {
             phoneText.setVisible(true);
@@ -285,7 +292,6 @@ public class UserController implements Initializable {
             inforRealName.setVisible(false);
             inforChangeBtn.setText("Confirm");
         } else {
-//            调用修改信息接口
             String jsonInputString = new JSONObject().put("realName", realNameText.getText())
                     .put("phoneNumber", phoneText.getText())
                     .put("email", emailText.getText()).toString();
@@ -318,7 +324,13 @@ public class UserController implements Initializable {
         }
 
     }
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: inforPaneInit
+    /// Description: Resets the information pane to its initial state, hiding text fields and showing labels.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void inforPaneInit() {
 
         inforPane.setVisible(false);
@@ -330,8 +342,13 @@ public class UserController implements Initializable {
         realNameText.setVisible(false);
     }
 
-    //    搜索栏
-//    --------------------------------------------------------------------------
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: searchPaneShow
+    /// Description: Displays the search pane and initializes its fields.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void searchPaneShow() {
         search.setVisible(true);
 
@@ -347,11 +364,23 @@ public class UserController implements Initializable {
         searchModifyBtn.setVisible(false);
         deleteBtn.setVisible(false);
     }
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: searchBackBtnClicked
+    /// Description: Hides the search pane and resets search fields to default.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void searchBackBtnClicked() {
         search.setVisible(false);
     }
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: searchSearchBtnClicked
+    /// Description: Performs a search based on the entered username and updates the UI with user information or error messages.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void searchSearchBtnClicked() {
         String response = GlobalVariable.get(GlobalVariable.url + "user/search?username=" + searchText.getText(),true);
         JSONObject json = new JSONObject(response);
@@ -380,7 +409,13 @@ public class UserController implements Initializable {
 
         }
     }
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: searchModifyBtnClicked
+    /// Description: Toggles between modifying and confirming changes to the user's role.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void searchModifyBtnClicked() {
         if (searchModifyBtn.getText().equals("Modify")) {
             deleteBtn.setVisible(false);
@@ -388,7 +423,6 @@ public class UserController implements Initializable {
             searchSearchBtn.setVisible(false);
             searchModifyBtn.setText("Confirm");
         } else {
-//            写入数据
             roleChoice.setVisible(false);
             if (GlobalVariable.role.equals("ADMIN"))
                 deleteBtn.setVisible(true);
@@ -407,7 +441,13 @@ public class UserController implements Initializable {
             searchModifyBtn.setText("Modify");
         }
     }
-
+    /////////////////////////////////////////////////////////////////////////////
+    /// Method: DeleteBtnClicked
+    /// Description: Prompts for confirmation before deleting a user and handles the deletion process.
+    /// Input: None
+    /// Output: None
+    /// Returns: void
+    /////////////////////////////////////////////////////////////////////////////
     public void DeleteBtnClicked() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation dialog");

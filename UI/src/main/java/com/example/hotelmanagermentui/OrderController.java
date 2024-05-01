@@ -1,5 +1,4 @@
 package com.example.hotelmanagermentui;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -22,7 +21,10 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+///////////////////////////////////////////////////////////////////////////
+/// Class: OrderController
+/// Description: Manages the order-related interactions within the application, including displaying and updating order details.
+///////////////////////////////////////////////////////////////////////////
 public class OrderController implements Initializable {
     @FXML
     private VBox container;
@@ -30,34 +32,31 @@ public class OrderController implements Initializable {
     private AnchorPane order;
     @FXML
     private ScrollPane orderPane;
-
     @FXML
-    private Label roomNumber;
-    @FXML
-    private Label checkInDate;
-    @FXML
-    private Label checkOutDate;
-    @FXML
-    private Label status;
+    private Label roomNumber, checkInDate, checkOutDate, status;
     @FXML
     private TextField searchText;
 
-    public static OrderController instance;
-
-    public static OrderController getInstance() {
-        if (instance == null) instance = new OrderController();
-        return instance;
-    }
-
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: initialize
+    /// Description: Initializes the order management UI, setting up dynamic loading of order information.
+    /// Input: URL - the location used to resolve relative paths for the root object, ResourceBundle - the resources used to localize the root object.
+    /// Output: Configures initial settings for scroll pane and labels.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void initialize(URL location, ResourceBundle resources) {
-        // 初始化代码，执行依赖于UI组件的操作
         init();
         GlobalVariable.page = 0;
         newInfo();
 
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: init
+    /// Description: Configures the initial settings for the order pane, including scroll behavior and label styles.
+    /// Input: None
+    /// Output: Sets up the UI components' initial properties.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void init() {
         orderPane.setMinSize(542, 628);
         orderPane.setMaxSize(542, 628);
@@ -77,7 +76,13 @@ public class OrderController implements Initializable {
         container.setSpacing(10);
 
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: addChildren
+    /// Description: Dynamically adds order entries to the scrollable container based on provided JSON data.
+    /// Input: JSONArray of JSONObject representing order data.
+    /// Output: Adds visual components to the UI container to represent each order.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void addChildren(JSONObject[] data) {
         int number = data.length;
         for (int i = 0; i < number; i++) {
@@ -123,7 +128,13 @@ public class OrderController implements Initializable {
 
 
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: copyNode
+    /// Description: Creates a copy of a JavaFX Node, preserving its style and properties.
+    /// Input: Node - the node to be copied.
+    /// Output: None
+    /// Returns: Node - a new node which is a copy of the input node.
+    ///////////////////////////////////////////////////////////////////////////
     private Node copyNode(Node node) {
         if (node instanceof Button) {
             Button original = (Button) node;
@@ -143,16 +154,28 @@ public class OrderController implements Initializable {
             copy.getStyleClass().add("label-center");
             return copy;
         }
-        // 这里可以添加更多类型的检查和复制逻辑
         return null;
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: searchBtnClicked
+    /// Description: Handles the search operation, refreshing the container with new order information based on the search text.
+    /// Input: None
+    /// Output: Clears and repopulates the container based on search criteria.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void searchBtnClicked() {
         container.getChildren().removeAll(container.getChildren());
 
         GlobalVariable.page = 0;
         newInfo();
     }
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: newInfo
+    /// Description: Loads new order information from the server and updates the UI accordingly.
+    /// Input: None
+    /// Output: Requests new data from the server and updates the UI to display new orders.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void newInfo(){
         String response = null;
         JSONArray jsonArray = new JSONArray();

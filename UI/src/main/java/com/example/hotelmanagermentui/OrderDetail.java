@@ -18,65 +18,48 @@ import org.json.JSONObject;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+///////////////////////////////////////////////////////////////////////////
+/// Class: OrderDetail
+/// Description: Manages the detailed view of an order, including actions such as modify, cancel, or update the status of an order.
+///////////////////////////////////////////////////////////////////////////
 public class OrderDetail implements Initializable {
-    @FXML
-    public AnchorPane orderDetailPane;
-
-    public static OrderDetail instance = null;
     public String orderNumberIn;
     @FXML
-    private Button modify;
+    private Button modify, backBtn, cancel, statusBtn;
     @FXML
-    private TextField customerNameText;
+    private TextField customerNameText, customerEmailText;
     @FXML
-    private TextField customerEmailText;
-    @FXML
-    private Button backBtn;
-    @FXML
-    private Label customerName;
-    @FXML
-    private Label customerEmail;
-    @FXML
-    private Label status;
-    @FXML
-    private Button cancel;
-    @FXML
-    private Label roomNum;
+    private Label customerName, customerEmail, status, roomNum, checkInDate, checkOutDate, orderNumber, createdAt, username;
 
-    @FXML
-    private Label checkInDate;
-    @FXML
-    private Label checkOutDate;
-
-    @FXML
-    private Label orderNumber;
-    @FXML
-    private Label createdAt;
-    @FXML
-    private Label username;
-    @FXML
-    private Button statusBtn;
-
-    public static OrderDetail getInstance() {
-        if (instance == null) {
-            instance = new OrderDetail();
-        }
-        return instance;
-    }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: initialize
+    /// Description: Sets initial styles and configuration for UI elements in the order detail view.
+    /// Input: URL - the location used to resolve relative paths for the root object, ResourceBundle - the resources used to localize the root object.
+    /// Output: Applies initial CSS styles to the back button.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void initialize(URL location, ResourceBundle resources) {
-        // 初始化代码，执行依赖于UI组件的操作
-
         backBtn.getStyleClass().add("button-hover");
         backBtn.getStyleClass().add("button-hover:hover");
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: initData
+    /// Description: Initializes the order detail view with specific data.
+    /// Input: String - order number to fetch details for.
+    /// Output: Calls showDetail() to populate UI with data.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void initData(String data) {
         orderNumberIn = data;
         showDetail();
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: showDetail
+    /// Description: Fetches and displays details for a specific order.
+    /// Input: None
+    /// Output: Populates the order detail fields with information retrieved from the server.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void showDetail() {
 
         String response = GlobalVariable.get(GlobalVariable.url + "order/show?orderNumber=" + orderNumberIn, true);
@@ -106,8 +89,13 @@ public class OrderDetail implements Initializable {
 
 
     }
-
-    //    roomNum CustomerName customerEmail checkInDate  checkOutDate Status orderNum createdAt
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: backBtnClicked
+    /// Description: Handles the action to navigate back to the previous scene.
+    /// Input: None
+    /// Output: Removes the current detail view and returns to the order list scene.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void backBtnClicked() {
         Stage stage = (Stage) GlobalVariable.navigation.getScene().getWindow();
         Scene scene = stage.getScene();
@@ -116,7 +104,13 @@ public class OrderDetail implements Initializable {
         IconController.getInstance().changeScene(FxmlAll.orderScene, false);
 
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: modifyBtnClicked
+    /// Description: Allows modification of the order details or confirms the changes.
+    /// Input: None
+    /// Output: Toggles between modify and confirm modes for order detail changes.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void modifyBtnClicked() {
         if (modify.getText().equals("Modify")) {
 
@@ -142,7 +136,13 @@ public class OrderDetail implements Initializable {
             modify.setText("Modify");
         }
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: cancelBtnClicked
+    /// Description: Cancels the order and updates its status on the server and UI.
+    /// Input: None
+    /// Output: Changes the order status to "CANCELED" and updates the UI accordingly.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void cancelBtnClicked() {
         GlobalVariable.post("", GlobalVariable.url + "order/cancel?orderNumber=" + orderNumberIn);
 
@@ -151,7 +151,13 @@ public class OrderDetail implements Initializable {
         modify.setVisible(false);
         statusBtn.setVisible(false);
     }
-
+    ///////////////////////////////////////////////////////////////////////////
+    /// Method: statusBtnClicked
+    /// Description: Updates the status of the order (e.g., check-in, check-out) based on its current status.
+    /// Input: None
+    /// Output: Changes the order status and updates the UI and server status accordingly.
+    /// Returns: void
+    ///////////////////////////////////////////////////////////////////////////
     public void statusBtnClicked() {
         if (status.getText().equals("CREATED")) {
             GlobalVariable.post("", GlobalVariable.url + "order/checkin?orderNumber=" + orderNumberIn);
