@@ -35,7 +35,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="108.0" layoutY="348.0" text="Reenter password " textFill="WHITE">
+      <Label layoutX="108.0" layoutY="348.0" text="Confirm the password " textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

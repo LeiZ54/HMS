@@ -32,7 +32,7 @@ public class GlobalVariable {
         jsonObject.put("realName", GlobalVariable.realName);
         jsonObject.put("role", GlobalVariable.role);
         jsonObject.put("phoneNumber", GlobalVariable.phoneNumber);
-        try (FileWriter file = new FileWriter("data.txt")) {
+        try (FileWriter file = new FileWriter("UI/data.txt")) {
             file.write(jsonObject.toString());
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,7 +50,7 @@ public class GlobalVariable {
 
     public static void read() {
         try {
-            File file = new File("data.txt");
+            File file = new File("UI/data.txt");
             Scanner scanner = new Scanner(file);
             StringBuilder jsonText = new StringBuilder();
             while (scanner.hasNextLine()) {

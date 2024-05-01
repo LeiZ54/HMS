@@ -18,7 +18,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="register" layoutX="197.0" layoutY="583.0" mnemonicParsing="false" onMouseClicked="#registerClicked" onMouseEntered="#registerEntered" onMouseExited="#registerExited" style="-fx-background-color: none; -fx-text-fill: #00b7ff;" text="Create a account" textFill="#00b7ff">
+      <Button fx:id="register" layoutX="197.0" layoutY="583.0" mnemonicParsing="false" onMouseClicked="#registerClicked" onMouseEntered="#registerEntered" onMouseExited="#registerExited" style="-fx-background-color: none; -fx-text-fill: #00b7ff;" text="Create an account" textFill="#00b7ff">
          <font>
             <Font size="20.0" />
          </font>
@@ -27,7 +27,7 @@
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Label layoutX="144.0" layoutY="262.0" text="Username or email" textFill="WHITE">
+      <Label layoutX="144.0" layoutY="262.0" text="Username" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Label>

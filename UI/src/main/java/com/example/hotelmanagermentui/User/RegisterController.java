@@ -87,7 +87,7 @@ public class RegisterController {
     public void registerClicked() {
 
         if(!password.getText().equals(rePassword.getText())) {
-            rePasswordError.setText("the passwords do not match");
+            rePasswordError.setText("The password do not match");
             usernameError.setText("");
             passwordError.setText("");
             emailError.setText("");

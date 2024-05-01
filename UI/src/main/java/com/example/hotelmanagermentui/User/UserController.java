@@ -368,10 +368,6 @@ public class UserController implements Initializable {
             deleteBtn.setVisible(false);
 
         } else {
-            if (searchText.getText().equals(GlobalVariable.username)) {
-                GlobalVariable.alertAdd("Can not find yourself!");
-                return;
-            }
             searchUsername.setText(json.getString("username"));
             searchRealName.setText(json.getString("realName"));
             searchEmail.setText(json.getString("email"));

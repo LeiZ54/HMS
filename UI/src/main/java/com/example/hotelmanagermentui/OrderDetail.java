@@ -131,7 +131,6 @@ public class OrderDetail implements Initializable {
                     .put("customerEmail", customerEmailText.getText()).toString();
             GlobalVariable.post(jsonInputString, GlobalVariable.url + "order/update");
 
-
             customerName.setText(customerNameText.getText());
             customerEmail.setText(customerEmailText.getText());
             customerNameText.setVisible(false);
