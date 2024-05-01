@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.PasswordField?>
+<AnchorPane prefHeight="878.0" prefWidth="582.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotelmanagermentui.User.UserController">
+    <children>
+        <Label layoutX="67.0" layoutY="93.0" text="Hello," textFill="WHITE">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Label>
+        <Label fx:id="realName" layoutX="116.0" layoutY="144.0" textFill="WHITE">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Label>
+        <Label layoutX="100.0" layoutY="234.0" prefHeight="113.0" prefWidth="351.0" style="-fx-background-color: #161B22; -fx-border-color: #30363D; -fx-border-radius: 10px; -fx-border-width: 2.0;" />
+        <Label layoutX="100.0" layoutY="359.0" prefHeight="72.0" prefWidth="351.0" style="-fx-background-color: #161B22; -fx-border-color: #30363D; -fx-border-radius: 10px; -fx-border-width: 2;" />
+        <Label layoutX="100.0" layoutY="446.0" prefHeight="72.0" prefWidth="351.0" style="-fx-background-color: #161B22; -fx-border-color: #30363D; -fx-border-radius: 10px; -fx-border-width: 2;" />
+        <ImageView fx:id="searchBtn" fitHeight="43.0" fitWidth="57.0" layoutX="385.0" layoutY="461.0" onMouseClicked="#searchPaneShow" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../UI/SearchBtn.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="100.0" layoutY="534.0" prefHeight="72.0" prefWidth="351.0" style="-fx-background-color: #161B22; -fx-border-color: #30363D; -fx-border-radius: 10px; -fx-border-width: 2;" />
+        <Label fx:id="username" layoutX="241.0" layoutY="248.0" prefHeight="43.0" prefWidth="70.0" textFill="#e1d2ba">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </Label>
+        <Label layoutX="122.0" layoutY="379.0" prefHeight="33.0" prefWidth="92.0" text="Email:" textFill="#e1d2ba">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Button fx:id="information" layoutX="102.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#changeInformation" prefHeight="30.0" prefWidth="168.0" style="-fx-background-color: #161B22; -fx-border-radius: 2;" text="Change information" textFill="WHITE" />
+        <Button fx:id="password" layoutX="269.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#changePassword" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #161B22; -fx-border-radius: 2;" text="Change password" textFill="WHITE" />
+        <Line endX="248.0" layoutX="201.0" layoutY="316.0" startX="-100.0" stroke="WHITE" />
+        <Line endX="-22.0" endY="-65.0" layoutX="291.0" layoutY="412.0" startX="-22.0" startY="-94.0" stroke="WHITE" />
+        <Label fx:id="email" layoutX="205.0" layoutY="379.0" prefHeight="33.0" prefWidth="235.0" textFill="#e1d2ba">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="124.0" layoutY="466.0" prefHeight="33.0" prefWidth="92.0" text="Role:" textFill="#e1d2ba">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="role" layoutX="205.0" layoutY="468.0" prefHeight="33.0" prefWidth="161.0" textFill="#e1d2ba">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Button fx:id="logOutBtn" layoutX="358.0" layoutY="258.0" mnemonicParsing="false" onMouseClicked="#logOut" prefHeight="23.0" prefWidth="70.0" style="-fx-background-color: none;" text="log out" textFill="WHITE" />
+        <Label fx:id="phone" layoutX="205.0" layoutY="553.0" prefHeight="33.0" prefWidth="235.0" textFill="#e1d2ba">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="122.0" layoutY="551.0" prefHeight="33.0" prefWidth="92.0" text="Phone:" textFill="#e1d2ba">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <AnchorPane id="inforPane" fx:id="inforPane" prefHeight="888.0" prefWidth="592.0" visible="false">
+            <children>
+                <AnchorPane prefHeight="888.0" prefWidth="592.0" style="-fx-background-color: #0D1117; -fx-opacity: 0.8;" />
+                <AnchorPane layoutX="54.0" layoutY="250.0" prefHeight="314.0" prefWidth="455.0" style="-fx-background-color: #4d4d4d; -fx-border-color: #30363D; -fx-background-radius: 10px; -fx-border-radius: 10; -fx-opacity: 1;">
+                    <children>
+                        <Label layoutX="31.0" layoutY="116.0" text="Email:" textFill="#eff2d4">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="31.0" layoutY="69.0" text="Username:" textFill="#eff2d4">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="31.0" layoutY="163.0" text="Real name:" textFill="#eff2d4">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label id="inforUsername" fx:id="inforUsername" layoutX="140.0" layoutY="69.0" prefHeight="27.0" prefWidth="255.0" textFill="#eff2d4">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label id="inforEmail" fx:id="inforEmail" layoutX="140.0" layoutY="116.0" prefHeight="27.0" prefWidth="255.0" textFill="#eff2d4">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label id="inforRealName" fx:id="inforRealName" layoutX="140.0" layoutY="164.0" prefHeight="27.0" prefWidth="284.0" textFill="#eff2d4">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="inforChangeBtn" layoutX="361.0" layoutY="252.0" mnemonicParsing="false" onMouseClicked="#inforChangeBtnClicked" prefHeight="30.0" prefWidth="65.0" style="-fx-text-fill: black; -fx-background-radius: 20;" text="Modify" textFill="#00b7ff">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </Button>
+                        <TextField fx:id="emailText" layoutX="140.0" layoutY="118.0" prefHeight="23.0" prefWidth="235.0" visible="false" />
+                        <TextField fx:id="realNameText" layoutX="140.0" layoutY="167.0" prefHeight="23.0" prefWidth="235.0" visible="false" />
+                        <Button fx:id="inforBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#inforBackClicked" style="-fx-background-color: none; -fx-text-fill: #00b7ff;" text="&lt;Back" textFill="#00b7ff">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Button>
+                        <Label fx:id="inforEmailError" layoutX="140.0" layoutY="139.0" prefHeight="27.0" prefWidth="255.0" textFill="RED" />
+                        <Label fx:id="inforRealNameError" layoutX="140.0" layoutY="192.0" prefHeight="27.0" prefWidth="255.0" textFill="RED" />
+                        <Label layoutX="31.0" layoutY="209.0" text="Phone:" textFill="#eff2d4">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label id="inforPhone" fx:id="inforPhone" layoutX="140.0" layoutY="210.0" prefHeight="27.0" prefWidth="284.0" textFill="#eff2d4">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="inforPhoneError" layoutX="140.0" layoutY="231.0" prefHeight="27.0" prefWidth="255.0" textFill="RED" />
+                        <TextField fx:id="phoneText" layoutX="140.0" layoutY="210.0" prefHeight="23.0" prefWidth="235.0" visible="false" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane id="passwordPane" fx:id="passwordPane" prefHeight="888.0" prefWidth="592.0" visible="false">
+            <children>
+                <AnchorPane prefHeight="888.0" prefWidth="592.0" style="-fx-background-color: #0D1117; -fx-opacity: 0.8;" />
+                <AnchorPane fx:id="oldPasswordPane" layoutX="54.0" layoutY="250.0" prefHeight="314.0" prefWidth="455.0" style="-fx-background-color: #4d4d4d; -fx-border-color: #30363D; -fx-background-radius: 10px; -fx-border-radius: 10; -fx-opacity: 1;">
+                    <children>
+                        <Label id="passwordConfirm" layoutX="27.0" layoutY="144.0" text="old password:" textFill="#eff2d4">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="passwordBack2" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#passwordBackClicked" style="-fx-background-color: none; -fx-text-fill: #00b7ff;" text="&lt;Back" textFill="#00b7ff">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Button>
+                        <PasswordField fx:id="oldPasswordText" layoutX="180.0" layoutY="146.0" />
+                        <Button fx:id="oldPasswordConfirm" layoutX="371.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#oldPasswordConfirmClicked" text="Confirm" />
+                        <Label fx:id="oldPasswordError" layoutX="180.0" layoutY="179.0" prefHeight="23.0" prefWidth="246.0" textFill="RED" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="newPasswordPane" layoutX="54.0" layoutY="250.0" prefHeight="314.0" prefWidth="455.0" style="-fx-background-color: #4d4d4d; -fx-border-color: #30363D; -fx-background-radius: 10px; -fx-opacity: 1;" visible="false">
+                    <children>
+                        <Label id="passwordConfirm" layoutX="27.0" layoutY="109.0" text="New password:" textFill="#eff2d4">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="passwordBack1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#passwordBackClicked" style="-fx-background-color: none; -fx-text-fill: #00b7ff;" text="&lt;Back" textFill="#00b7ff">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Button>
+                        <PasswordField fx:id="newPasswordText" layoutX="180.0" layoutY="111.0" prefHeight="23.0" prefWidth="169.0" />
+                        <Button id="newPasswordConfirm" layoutX="371.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#newPasswordConfirmClicked" text="Confirm" />
+                        <Label id="passwordConfirm" layoutX="18.0" layoutY="159.0" text=" Password again:" textFill="#eff2d4">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <PasswordField fx:id="passwordAgainText" layoutX="180.0" layoutY="161.0" prefHeight="23.0" prefWidth="169.0" />
+                        <Label fx:id="newPasswordError" layoutX="25.0" layoutY="198.0" prefHeight="23.0" prefWidth="332.0" textFill="RED" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="search" prefHeight="888.0" prefWidth="592.0" visible="false">
+            <children>
+                <AnchorPane prefHeight="888.0" prefWidth="592.0" style="-fx-background-color: #0D1117; -fx-opacity: 1;" />
+                <AnchorPane layoutX="60.0" layoutY="100.0" prefHeight="643.0" prefWidth="465.0" style="-fx-border-color: #30363D; -fx-background-radius: 10px; -fx-border-radius: 10; -fx-opacity: 1;">
+                    <children>
+                        <TextField fx:id="searchText" layoutX="101.0" layoutY="58.0" prefHeight="33.0" prefWidth="161.0" style="-fx-background-radius: 20; -fx-border-color: grey; -fx-border-width: 3; -fx-border-radius: 20;" />
+                        <Button fx:id="searchSearchBtn" layoutX="287.0" layoutY="61.0" mnemonicParsing="false" onMouseClicked="#searchSearchBtnClicked" prefHeight="27.0" prefWidth="70.0" text="Search" />
+                        <Label layoutX="65.0" layoutY="123.0" prefHeight="59.0" prefWidth="319.0" style="-fx-background-color: #161B22; -fx-border-color: #30363D; -fx-border-radius: 10; width: 2;" />
+                        <Label layoutX="65.0" layoutY="200.0" prefHeight="59.0" prefWidth="319.0" style="-fx-background-color: #161B22; -fx-border-color: #30363D; -fx-border-radius: 10; width: 2;" />
+                        <Label layoutX="65.0" layoutY="280.0" prefHeight="59.0" prefWidth="319.0" style="-fx-background-color: #161B22; -fx-border-color: #30363D; -fx-border-radius: 10; width: 2;" />
+                        <Label layoutX="65.0" layoutY="359.0" prefHeight="59.0" prefWidth="319.0" style="-fx-background-color: #161B22; -fx-border-color: #30363D; -fx-border-radius: 10; width: 2;" />
+                        <Label layoutX="65.0" layoutY="440.0" prefHeight="59.0" prefWidth="319.0" style="-fx-background-color: #161B22; -fx-border-color: #30363D; -fx-border-radius: 10; width: 2;" />
+                        <Label layoutX="80.0" layoutY="136.0" prefHeight="33.0" prefWidth="114.0" text="Username:" textFill="#e1d2ba">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="80.0" layoutY="213.0" prefHeight="33.0" prefWidth="114.0" text="Real name:" textFill="#e1d2ba">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="80.0" layoutY="293.0" prefHeight="33.0" prefWidth="114.0" text="Email:" textFill="#e1d2ba">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="80.0" layoutY="372.0" prefHeight="33.0" prefWidth="114.0" text="Role:" textFill="#e1d2ba">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="80.0" layoutY="453.0" prefHeight="33.0" prefWidth="114.0" text="Phone:" textFill="#e1d2ba">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="searchUsername" layoutX="190.0" layoutY="136.0" prefHeight="33.0" prefWidth="175.0" textFill="#e1d2ba">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="searchRealName" layoutX="205.0" layoutY="213.0" prefHeight="33.0" prefWidth="160.0" textFill="#e1d2ba">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="searchEmail" layoutX="144.0" layoutY="293.0" prefHeight="33.0" prefWidth="227.0" textFill="#e1d2ba">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                        <Label fx:id="searchRole" layoutX="142.0" layoutY="372.0" prefHeight="33.0" prefWidth="227.0" textFill="#e1d2ba">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="searchPhone" layoutX="149.0" layoutY="453.0" prefHeight="33.0" prefWidth="212.0" textFill="#e1d2ba">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="searchBackBtn" layoutX="14.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#searchBackBtnClicked" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: none; -fx-text-fill: #00b7ff;" text="&lt;Back">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="searchModifyBtn" layoutX="322.0" layoutY="549.0" mnemonicParsing="false" onMouseClicked="#searchModifyBtnClicked" prefHeight="27.0" prefWidth="70.0" style="-fx-background-radius: 20;" text="Modify" visible="false" />
+                  <ComboBox fx:id="roleChoice" layoutX="142.0" layoutY="372.0" prefHeight="30.0" prefWidth="212.0" visible="false" />
+                  <Button fx:id="deleteBtn" layoutX="234.0" layoutY="549.0" mnemonicParsing="false" onMouseClicked="#DeleteBtnClicked" prefHeight="27.0" prefWidth="70.0" style="-fx-background-radius: 20;" text="Delete" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,1 @@
+{"realName":"Boyuan","role":"CUSTOMER","phoneNumber":"8575447943","email":"boyuan@123.com","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoMCIsImlhdCI6MTcxNDUxNTE1NiwiZXhwIjoxNzE0NjAxNTU2LCJ1c2VybmFtZSI6IkJpZyJ9.gQdBIWW4bEQ9r8u1q72mhoGsxFqSTFiyOMLVm5Sa2Gc","username":"Big"}

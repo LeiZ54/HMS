@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="878.0" prefWidth="582.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotelmanagermentui.User.RegisterController">
+   <children>
+      <Label layoutX="85.0" layoutY="89.0" prefHeight="559.0" prefWidth="412.0" style="-fx-background-color: #161B22; -fx-border-color: #30363D; -fx-border-radius: 10px;" />
+      <Label layoutX="115.0" layoutY="107.0" prefHeight="49.0" prefWidth="289.0" text="Welcome! " textFill="#00eaff">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="115.0" layoutY="156.0" prefHeight="49.0" prefWidth="289.0" text="Let's start our journey" textFill="#00eaff">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="username" layoutX="277.0" layoutY="214.0" onMouseClicked="#usernameClicked" prefHeight="34.0" prefWidth="194.0" style="-fx-background-color: #0D1117; -fx-border-color: #30363D;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Label layoutX="108.0" layoutY="221.0" text="Enter your username" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="108.0" layoutY="289.0" text="Enter your password" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="108.0" layoutY="348.0" text="Reenter password " textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="email" layoutX="276.0" layoutY="405.0" onMouseClicked="#emailClicked" prefHeight="34.0" prefWidth="194.0" style="-fx-background-color: #0D1117; -fx-border-color: #30363D;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Label layoutX="107.0" layoutY="412.0" text="Enter your email" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="realname" layoutX="274.0" layoutY="465.0" onMouseClicked="#realnameClicked" prefHeight="34.0" prefWidth="194.0" style="-fx-background-color: #0D1117; -fx-border-color: #30363D;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Label layoutX="105.0" layoutY="472.0" text="Enter your realname" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="142.0" layoutY="589.0" mnemonicParsing="false" onMouseClicked="#registerClicked" prefHeight="41.0" prefWidth="298.0" style="-fx-background-color: green;" text="Register" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="back" layoutX="71.0" layoutY="658.0" mnemonicParsing="false" onMouseClicked="#backClicked" onMouseEntered="#backEntered" onMouseExited="#backExited" style="-fx-background-color: none; -fx-text-fill: #00b7ff;" text="&lt;Back">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="password" layoutX="277.0" layoutY="279.0" prefHeight="34.0" prefWidth="194.0" style="-fx-background-color: #0D1117; -fx-border-color: #30363D;" onMouseClicked="#passwordClicked"/>
+      <PasswordField fx:id="rePassword" layoutX="277.0" layoutY="341.0" prefHeight="34.0" prefWidth="194.0" style="-fx-background-color: #0D1117; -fx-border-color: #30363D;" onMouseClicked="#rePasswordClicked"/>
+      <Label fx:id="usernameError" layoutX="120.0" layoutY="250.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="passwordError" layoutX="120.0" layoutY="315.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="rePasswordError" layoutX="120.0" layoutY="380.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="emailError" layoutX="120.0" layoutY="439.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="realNameError" layoutX="120.0" layoutY="502.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="phoneNumber"  layoutX="275.0" layoutY="522.0" onMouseClicked="#phoneNumberClicked" prefHeight="34.0" prefWidth="194.0" style="-fx-background-color: #0D1117; -fx-border-color: #30363D;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Label layoutX="106.0" layoutY="529.0" prefHeight="20.0" prefWidth="160.0" text="Enter phone number" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="phoneNumberError" layoutX="120.0" layoutY="558.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

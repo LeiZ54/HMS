@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="878.0" prefWidth="582.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotelmanagermentui.OrderController">
+    <children>
+        <ScrollPane fx:id="orderPane" layoutX="16.0" layoutY="143.0" prefHeight="628.0" prefWidth="542.0" style="-fx-background-color: black;">
+            <content>
+                <VBox fx:id="container" prefHeight="684.0" prefWidth="530.0" style="-fx-padding: 10px; -fx-background-color: #0D1117;" />
+            </content>
+        </ScrollPane>
+        <AnchorPane fx:id="order" layoutY="148.0" prefHeight="206.0" prefWidth="510.0" style="-fx-background-color: #161B22; -fx-background-radius: 10; -fx-border-color: #30363D; -fx-border-radius: 10px; -fx-border-width: 2;" visible="false">
+            <children>
+                <Label fx:id="roomNumber" alignment="CENTER" layoutX="10.0" layoutY="56.0" prefHeight="42.0" prefWidth="490.0" style="-fx-border-width: 4; -fx-border-radius: 50;" text="Room number: " textFill="WHITE">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="checkInDate" alignment="CENTER" layoutX="8.0" layoutY="103.0" prefHeight="42.0" prefWidth="490.0" style="-fx-border-width: 4; -fx-border-radius: 50;" text="Created at: " textFill="WHITE">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="status" alignment="CENTER" layoutX="263.0" layoutY="154.0" prefHeight="42.0" prefWidth="233.0" style="-fx-border-width: 4; -fx-border-radius: 50;" text="Status: " textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="checkOutDate" alignment="CENTER" layoutX="8.0" layoutY="154.0" prefHeight="42.0" prefWidth="242.0" style="-fx-border-width: 4; -fx-border-radius: 50;" text="name: " textFill="WHITE">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+            <Label fx:id="checkOutDate1" alignment="CENTER" layoutX="10.0" layoutY="7.0" prefHeight="42.0" prefWidth="490.0" style="-fx-border-width: 4; -fx-border-radius: 50;" text="Order number: " textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            </children>
+        </AnchorPane>
+      <TextField fx:id="searchText" layoutX="124.0" layoutY="75.0" style="-fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 20; -fx-border-width: 3;">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Button id="searchBtn" layoutX="361.0" layoutY="79.0" mnemonicParsing="false" onMouseClicked="#searchBtnClicked" prefHeight="29.0" prefWidth="63.0" style="-fx-background-radius: 10;" text="Search" />
+    </children>
+</AnchorPane>

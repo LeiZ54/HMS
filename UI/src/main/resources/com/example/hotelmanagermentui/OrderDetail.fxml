@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1000.0" prefWidth="582.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotelmanagermentui.OrderDetail">
+   <children>
+      <AnchorPane layoutX="34.0" layoutY="121.0" prefHeight="591.0" prefWidth="500.0" style="-fx-background-color: #545454; -fx-background-radius: 20; -fx-border-color: white; -fx-border-radius: 20; -fx-border-width: 2;">
+         <children>
+            <VBox layoutX="20.0" layoutY="82.0" prefHeight="442.0" prefWidth="461.0" style="-fx-spacing: 20;">
+               <children>
+                  <HBox prefHeight="32.0" prefWidth="461.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="184.0" text="Room number: " textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="roomNum" prefHeight="30.0" prefWidth="184.0" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="32.0" prefWidth="461.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="210.0" text="Customer name：" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="customerName" prefHeight="30.0" prefWidth="184.0" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="32.0" prefWidth="461.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="200.0" text="Customer email:" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="customerEmail" prefHeight="30.0" prefWidth="234.0" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="32.0" prefWidth="461.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="176.0" text="Check in date:" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="checkInDate" prefHeight="30.0" prefWidth="184.0" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="32.0" prefWidth="461.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="184.0" text="Check out date:" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="checkOutDate" prefHeight="30.0" prefWidth="184.0" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="32.0" prefWidth="461.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="82.0" text="status:" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="status" prefHeight="30.0" prefWidth="184.0" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="32.0" prefWidth="461.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="184.0" text="Order number:" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="orderNumber" prefHeight="30.0" prefWidth="184.0" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="32.0" prefWidth="461.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="138.0" text="Created at:" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="createdAt" prefHeight="30.0" prefWidth="184.0" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="32.0" prefWidth="461.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="140.0" text="Created by:" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="username" prefHeight="30.0" prefWidth="184.0" textFill="#eee0c4">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Button fx:id="backBtn" layoutX="20.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#backBtnClicked" style="-fx-background-color: none; -fx-text-fill: #00b7ff;" text="&lt;back">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="cancel" layoutX="292.0" layoutY="544.0" mnemonicParsing="false" onMouseClicked="#cancelBtnClicked" style="-fx-border-radius: 20; -fx-background-radius: 20;" text="Cancel">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <TextField fx:id="customerNameText" layoutX="216.0" layoutY="135.0" prefHeight="30.0" prefWidth="265.0" visible="false" />
+            <TextField fx:id="customerEmailText" layoutX="216.0" layoutY="188.0" prefHeight="30.0" prefWidth="265.0" visible="false" />
+            <Button fx:id="statusBtn" layoutX="20.0" layoutY="540.0" mnemonicParsing="false" onMouseClicked="#statusBtnClicked" prefHeight="32.0" prefWidth="138.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" textAlignment="CENTER" visible="false">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="modify" layoutX="394.0" layoutY="543.0" mnemonicParsing="false" onMouseClicked="#modifyBtnClicked" style="-fx-border-radius: 20; -fx-background-radius: 20;" text="Modify">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

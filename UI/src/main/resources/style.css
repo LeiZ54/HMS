@@ -1,0 +1,27 @@
+.button-hover {
+    -fx-underline: false;
+}
+
+.button-hover:hover {
+    -fx-underline: true;
+}
+
+.button-hover-bgChange {
+    -fx-background-color: #161B22;
+    -fx-text-fill: white;
+}
+
+.button-hover-bgChange:hover {
+    -fx-background-color: grey !important;
+    -fx-text-fill: black;
+}
+
+.scroll-bar .track {
+    -fx-background-color: #999; /* 轨道颜色 */
+}
+
+.label-center {
+    -fx-text-fill: white;
+    -fx-font-size: 20;
+    -fx-alignment: center;
+}
